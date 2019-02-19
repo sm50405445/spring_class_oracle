@@ -1,0 +1,8 @@
+package green.org.dbtest;
+
+import org.junit.Test;
+
+public class JDBCTest {
+	
+
+}

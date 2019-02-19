@@ -1,0 +1,10 @@
+package green.org.dbtest;
+
+import org.junit.Test;
+
+import lombok.Data;
+
+@Data
+public class JDBCTest {
+	
+}
