@@ -22,7 +22,7 @@ import lombok.extern.log4j.Log4j;
 public class DataSourceTest {
 
 	
-	@Setter(onMethod_ = {@Autowired})
+	@Setter(onMethod =@__({@Autowired}))
 	private DataSource datasource;
 	
 	@Test

@@ -9,8 +9,6 @@
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="oracle.jdbc.driver.OracleDriver"/>
-<fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
-<fullyQualifiedTypeName name="org.springframework.context.support.GenericApplicationContext"/>
 <fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="javax.sql.DataSource"/>
 <fullyQualifiedTypeName name="lombok.Setter"/>
@@ -19,4 +17,7 @@
 <fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner"/>
 <fullyQualifiedTypeName name="org.springframework.test.context.ContextConfiguration"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.GenericApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
 </qualifiedTypeNameHistroy>

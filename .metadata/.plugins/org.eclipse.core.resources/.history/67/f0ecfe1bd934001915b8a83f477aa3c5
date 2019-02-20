@@ -1,0 +1,16 @@
+package polymorphism;
+
+public class Tvuser {
+
+	public static void main(String[] args) {
+		
+		
+		BeanFactory factory = new BeanFactory();
+		Tv tv = (Tv)factory.getBean(args[0]);
+		
+		tv.turnOn();
+		tv.turnOff();
+		tv.soundUp();
+		tv.soundOff();
+	}
+}

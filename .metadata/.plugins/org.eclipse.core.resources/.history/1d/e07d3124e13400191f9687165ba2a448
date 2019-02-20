@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean을 엘리먼트라고 한다 -->
+	<bean id="tv" class="polymorphism.SamsungTv" 
+	init-method="initMethod"
+	destroy-method="destroyMethod"
+	lazy-init="true" >
+	<!-- 클라이언트 요청이 있을 때만 -->
+	</bean>
+	<bean id="tv2" class="polymorphism.LgTv"></bean>
+
+	
+	
+</beans>

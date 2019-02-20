@@ -1,0 +1,25 @@
+package polymorphism;
+
+public class SamsungTv implements Tv{
+
+	public void turnOn() {
+		System.out.println("SamsungTV 키기");
+	}
+	
+	public void turnOff() {
+		System.out.println("SamsungTV 끄기");
+	}
+	
+	public void soundUp() {
+		System.out.println("SamsungTV 볼륨업");
+	}
+	
+	public void soundOff() {
+		System.out.println("SamsungTV 볼륨다운");
+	}
+	
+	public void initMethod() {
+		
+	}
+	
+}
