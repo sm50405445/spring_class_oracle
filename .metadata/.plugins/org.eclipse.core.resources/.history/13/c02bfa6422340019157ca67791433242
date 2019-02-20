@@ -1,0 +1,13 @@
+package green.org.dbtest;
+
+import javax.sql.DataSource;
+
+import lombok.Setter;
+
+
+public class DataSourceTest {
+	
+	@Setter(onMethod= @AutoWired)
+	private DataSource datasource;
+	
+}
