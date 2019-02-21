@@ -2,18 +2,31 @@ package polymorphism;
 
 public class SamsungTv implements Tv{
 
-	private SonySpeaker speaker;
-	int price;
+	private Speaker speaker;
+	private int price;
 	
-	public SamsungTv(SonySpeaker speaker) {
-		System.out.println("samsungTv 생성자 생성");
+	public SamsungTv() {
+		System.out.println("samsungTv 객체 생성");
+	}
+	
+	public SamsungTv(Speaker speaker) {
+		System.out.println("samsungTv(2) 객체 생성");
 		this.speaker = speaker;
 	}
 	
-	
-	
-	public SamsungTv(SonySpeaker speaker, int price) {
+	public SamsungTv(Speaker speaker, int price) {
+		System.out.println("samsungTv(3) 객체 생성");
 		this.speaker = speaker;
+		this.price = price;
+	}
+	
+	public void setSpeaker(Speaker speaker) {
+		System.out.println("setSpeaker 메서드 생성");
+		this.speaker = speaker;
+	}
+
+	public void setPrice(int price) {
+		System.out.println("setPrice 메서드 생성");
 		this.price = price;
 	}
 
@@ -27,11 +40,11 @@ public class SamsungTv implements Tv{
 	}
 	
 	public void soundUp() {
-		speaker.soundUp();
+		speaker.volumeUp();
 	}
 	
 	public void soundOff() {
-		speaker.soundOff();
+		speaker.volumeDown();
 	}
 	
 	public void initMethod() {

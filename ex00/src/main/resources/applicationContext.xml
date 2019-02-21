@@ -1,22 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<!-- bean을 엘리먼트라고 한다 -->
-	<bean id="tv" class="polymorphism.SamsungTv" 
+	<bean id="tv" 
+	class="polymorphism.SamsungTv"
+	p:speaker-ref="Applespeaker" p:price="20000" 
 	init-method="initMethod"
 	destroy-method="destroyMethod"
 	lazy-init="true" 
-	scope="singleton"> 
-	<constructor-arg ref="sonyspeaker"></constructor-arg>
-	<constructor-arg name="price" value="20000"></constructor-arg>
+	scope="singleton">
+	 
+	<!-- <constructor-arg ref="Applespeaker"></constructor-arg>
+	<constructor-arg name="price" value="10000"></constructor-arg> -->
+	<!-- p namespace란? setter 설정함 -->
 	</bean>
 	<!-- lazy-init은 클라이언트 요청이 있을 때만 -->
 	<!-- scope="prototype" 객체를 계속 만든다 -->
 	
 	<bean id="tv2" class="polymorphism.LgTv"></bean>
-
-	<bean id="sonyspeaker" class="polymorphism.SonySpeaker"></bean>
+	<bean id="Applespeaker" class="polymorphism.AppleSpeaker"></bean>
+	
+	<bean id="collection" class="collection.CollectionBean">
+		<property name="addressList">
+			
+		<props>
+			<prop key="홍길동">
+				서울시 강남구			
+			</prop>
+			<prop key="유봏관">
+				서울시 건대
+			</prop>
+		</props>
+			
+			<!-- <map>
+				<entry>
+					<key>
+						<value>홍길동</value>
+					</key>
+					<value>서울시 강남구 대치동</value>
+				</entry>
+				<entry>
+					<key>
+						<value>유봉관</value>
+					</key>
+					<value>서울시 건대입구</value>
+				</entry>
+				<entry>
+					<key>
+						<value>이상민</value>
+					</key>
+					<value>경기도 용인시</value>
+				</entry>
+			</map> -->
+			
+			<!-- <list>
+				<value>서울시 강남</value>
+				<value>서울시 서초</value>
+				<value>경기도 용인시</value>
+				<value>서울시 중랑구 중화동</value>
+			</list> -->
+			<!-- <set value-type="java.lang.String">
+				<value>서울시 강남</value>
+				<value>서울시 서초</value>
+				<value>경기도 용인시</value>
+			</set> -->
+		</property>
+	</bean>
+	
+	<context:component-scan base-package="polymorphism"></context:component-scan>
 	
 </beans>
