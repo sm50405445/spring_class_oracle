@@ -1,17 +1,24 @@
 package polymorphism;
 
-public class SonySpeaker {
+import org.springframework.stereotype.Component;
+
+@Component("sony")
+public class SonySpeaker implements Speaker{
 	
+	
+	@Override
+	public void volumeUp() {
+		System.out.println("볼륨업");
+	}
+
+	@Override
+	public void volumeDown() {
+		System.out.println("볼륨다운");
+	}
+
 	public SonySpeaker() {
 		System.out.println("sonyspeaker 객체 생성");
 	}
 	
-	public void soundUp() {
-		System.out.println("볼륨업");
-	}
-	
-	public void soundOff() {
-		System.out.println("볼륨다운");
-	}
 	
 }

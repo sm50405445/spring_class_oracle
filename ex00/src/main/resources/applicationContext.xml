@@ -25,7 +25,9 @@
 	<!-- scope="prototype" 객체를 계속 만든다 -->
 	
 	<bean id="tv2" class="polymorphism.LgTv"></bean>
-	<bean id="Applespeaker" class="polymorphism.AppleSpeaker"></bean>
+	<bean id="apple" class="polymorphism.AppleSpeaker"></bean>
+	<bean id="sony" class="polymorphism.SonySpeaker"></bean>
+	
 	
 	<bean id="collection" class="collection.CollectionBean">
 		<property name="addressList">
