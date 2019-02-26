@@ -1,8 +1,0 @@
-package green.org.dbtest;
-
-import org.junit.Assert;
-
-public class JDBCTest {
-	
-	
-}

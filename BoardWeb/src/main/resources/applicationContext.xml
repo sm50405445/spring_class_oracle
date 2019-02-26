@@ -3,9 +3,96 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
 	<bean id="BoardService" class="com.spring.biz.board.impl.BoardServiceImpl"></bean>
 	<context:component-scan base-package="com.spring.biz"></context:component-scan>
+	
+	<!-- <bean id="UserDAO" class="com.spring.biz.user.impl.UserDAO">	
+	</bean>
+	
+	<bean id="UserService" class="com.spring.biz.user.impl.UserServiceImpl">
+		<property name="userDAO" ref="UserDAO"></property>
+	</bean> -->
+	
+	
+	<!-- <bean id="log" class="com.spring.biz.common.LogAdvice"></bean>
+		
+		<aop:config>
+		
+			<aop:pointcut 
+			expression=
+			"execution(* com.spring.biz..*Impl.*(..))" 
+			id="allPointcut"/>
+			
+			
+			<aop:aspect ref="log">
+				<aop:before method="printLog" pointcut-ref="allPointcut"/>
+			</aop:aspect>
+			
+		</aop:config> -->
+	
+	<!-- <bean id="log" class="com.spring.biz.common.LogAdvice"></bean>
+	
+	<aop:config>
+		<aop:pointcut 
+			expression=
+			"execution(* com.spring.biz..*Impl.*(..))" 
+			id="getPointcut"/>
+			
+			<aop:aspect ref="log">
+				<aop:after method="printLog" pointcut-ref="getPointcut"/>
+				
+			</aop:aspect>
+	</aop:config> -->
+	
+	<!-- <bean id="before" class="com.spring.biz.common.BeforeAdvice"></bean>
+	
+	<aop:config>
+		<aop:pointcut expression=
+		"execution(* com.spring.biz..*Impl.*(..))" 
+		id="beforePointcut"/>
+		
+		<aop:aspect ref="before">
+			<aop:before method="beforeLog" pointcut-ref="beforePointcut"/>
+		</aop:aspect>
+	</aop:config> -->
+	
+	<!-- <bean id="afterReturning" class="com.spring.biz.common.AfterReturningAdvice"></bean>
+	
+	<aop:config>
+		<aop:pointcut expression=
+		"execution(* com.spring.biz..*Impl.*(..))"
+		id="AfterReturning"/>
+		
+		<aop:aspect ref="afterReturning">
+			<aop:after-returning method="afterLog" pointcut-ref="AfterReturning"/>
+		</aop:aspect>
+	</aop:config>
+	 -->
+	<!-- <bean id="afterThrowing" class="com.spring.biz.common.AfterThrowingAdvice"></bean>
+	<aop:config>
+		<aop:pointcut expression=
+		"execution(* com.spring.biz..*Impl.*(..))" 
+		id="AfterThrowing"/>
+		
+		<aop:aspect ref="afterThrowing">
+			<aop:after-throwing method="exceptionLog" pointcut-ref="AfterThrowing"/>
+		</aop:aspect>
+	</aop:config> -->
+	
+	<bean id="afterAdvice" class="com.spring.biz.common.AfterAdvice"></bean>
+	<aop:config>
+		<aop:pointcut expression=
+		"execution(* com.spring.biz..*Impl.*(..))" 
+		id="AfterAdvice"/>
+		
+		<aop:aspect ref="afterAdvice">
+			<aop:after method="finallyLog" pointcut-ref="AfterAdvice"/>
+		</aop:aspect>
+	</aop:config>
+	
 </beans>

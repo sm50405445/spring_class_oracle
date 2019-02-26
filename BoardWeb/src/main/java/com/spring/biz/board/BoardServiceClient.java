@@ -19,11 +19,11 @@ public class BoardServiceClient {
 		//3. 글 등록
 		BoardVO vo = new BoardVO();
 		/*
-		 * vo.setTitle("하이"); vo.setWriter("홍길동"); vo.setContent("하이");
+		 * vo.setSeq(0);vo.setTitle("하이"); vo.setWriter("홍길동"); vo.setContent("하이");
 		 * boardService.InsertBoard(vo);
 		 */
 		boardService.SelectBoard(vo);
-		vo.setSeq(1);
+		vo.setSeq(3);
 		boardService.SelectOneBoard(vo);
 		//4. 글 목록 검색
 		/*
