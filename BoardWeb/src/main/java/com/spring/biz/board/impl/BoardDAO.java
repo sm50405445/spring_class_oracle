@@ -89,7 +89,7 @@ public class BoardDAO {
 			conn = JDBCUtil.getConnection();
 			pstm = conn.prepareStatement(BOARD_GET);
 			pstm.setInt(1,vo.getSeq());
-			pstm.executeQuery();
+			rs=pstm.executeQuery();
 			while(rs.next()) {
 				vo.setSeq(rs.getInt("SEQ"));
 				vo.setWriter(rs.getString("WRITER"));
@@ -97,7 +97,7 @@ public class BoardDAO {
 				vo.setContent(rs.getString("CONTENT"));
 				vo.setDate(rs.getDate("REGDATE"));
 				vo.setCnt(rs.getInt("CNT"));
-				vo.toString();
+				System.out.println(vo.toString());
 			}
 			
 		}catch(SQLException e) {
@@ -113,6 +113,7 @@ public class BoardDAO {
 			conn = JDBCUtil.getConnection();
 			pstm = conn.prepareStatement(BOARD_LIST);
 			pstm.executeQuery();
+			rs = pstm.executeQuery();
 			while(rs.next()) {
 				vo.setSeq(rs.getInt("SEQ"));
 				vo.setWriter(rs.getString("WRITER"));
@@ -120,7 +121,7 @@ public class BoardDAO {
 				vo.setContent(rs.getString("CONTENT"));
 				vo.setDate(rs.getDate("REGDATE"));
 				vo.setCnt(rs.getInt("CNT"));
-				vo.toString();
+				System.out.println(vo.toString());
 			}
 			
 		}catch(SQLException e) {
