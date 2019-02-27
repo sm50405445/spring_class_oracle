@@ -20,15 +20,19 @@ public class BoardServiceClient {
 		
 		//3. 글 등록
 		BoardVO vo = new BoardVO();
-		ArrayList<BoardVO> members = boardService.SelectBoard(vo);
-		for(int i =0;i<members.size();i++) {
-			System.out.println(members.get(i));
-		}
+		vo.setSeq(0);
+		vo.setTitle("1");
+		vo.setWriter("1");
+		vo.setContent("1");
+		boardService.InsertBoard(vo);
 		
-		/*
-		 * vo.setSeq(0);vo.setTitle("하이"); vo.setWriter("홍길동"); vo.setContent("하이");
-		 * boardService.InsertBoard(vo);
-		 */
+		
+		  ArrayList<BoardVO> members = boardService.SelectBoard(vo); for(int i
+		  =0;i<members.size();i++) { System.out.println(members.get(i)); }
+		 
+		
+		  
+		 
 		/*
 		 * vo.setSeq(3); boardService.SelectOneBoard(vo);
 		 */

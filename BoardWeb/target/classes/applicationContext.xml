@@ -11,6 +11,9 @@
 	<bean id="BoardService" class="com.spring.biz.board.impl.BoardServiceImpl"></bean>
 	<context:component-scan base-package="com.spring.biz"></context:component-scan>
 	
+	<aop:aspectj-autoproxy>
+		
+	</aop:aspectj-autoproxy>
 	<!-- <bean id="UserDAO" class="com.spring.biz.user.impl.UserDAO">	
 	</bean>
 	
@@ -49,7 +52,7 @@
 			</aop:aspect>
 	</aop:config> -->
 	
-	<bean id="before" class="com.spring.biz.common.BeforeAdvice"></bean>
+	<!-- <bean id="before" class="com.spring.biz.common.BeforeAdvice"></bean>
 	
 	<aop:config>
 		<aop:pointcut expression=
@@ -59,7 +62,7 @@
 		<aop:aspect ref="before">
 			<aop:before method="beforeLog" pointcut-ref="beforePointcut"/>
 		</aop:aspect>
-	</aop:config>
+	</aop:config> -->
 	
 	<!-- <bean id="afterReturning" class="com.spring.biz.common.AfterReturningAdvice"></bean>
 	
@@ -69,10 +72,10 @@
 		id="AfterReturning"/>
 		
 		<aop:aspect ref="afterReturning">
-			<aop:after-returning method="afterLog" pointcut-ref="AfterReturning"/>
+			<aop:after-returning method="afterLog" pointcut-ref="afterReturning" returning="returnObj"/>
 		</aop:aspect>
-	</aop:config>
-	 -->
+	</aop:config> -->
+	
 	<bean id="afterThrowing" class="com.spring.biz.common.AfterThrowingAdvice"></bean>
 	<aop:config>
 		<aop:pointcut expression=
@@ -80,7 +83,7 @@
 		id="AfterThrowing"/>
 		
 		<aop:aspect ref="afterThrowing">
-			<aop:after-throwing method="exceptionLog" pointcut-ref="AfterThrowing"/>
+			<aop:after-throwing method="exceptionLog" pointcut-ref="AfterThrowing" throwing="exceptObj"/>
 		</aop:aspect>
 	</aop:config>
 	

@@ -115,7 +115,6 @@ public class BoardDAO {
 		try {
 			conn = JDBCUtil.getConnection();
 			pstm = conn.prepareStatement(BOARD_LIST);
-			pstm.executeQuery();
 			rs = pstm.executeQuery();
 			while(rs.next()) {
 				vo.setSeq(rs.getInt("SEQ"));
