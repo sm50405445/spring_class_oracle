@@ -1,6 +1,8 @@
 package com.spring.biz.board;
 
 
+import java.util.ArrayList;
+
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
@@ -18,13 +20,18 @@ public class BoardServiceClient {
 		
 		//3. 글 등록
 		BoardVO vo = new BoardVO();
+		ArrayList<BoardVO> members = boardService.SelectBoard(vo);
+		for(int i =0;i<members.size();i++) {
+			System.out.println(members.get(i));
+		}
+		
 		/*
 		 * vo.setSeq(0);vo.setTitle("하이"); vo.setWriter("홍길동"); vo.setContent("하이");
 		 * boardService.InsertBoard(vo);
 		 */
-		boardService.SelectBoard(vo);
-		vo.setSeq(3);
-		boardService.SelectOneBoard(vo);
+		/*
+		 * vo.setSeq(3); boardService.SelectOneBoard(vo);
+		 */
 		//4. 글 목록 검색
 		/*
 		 * boardService.SelectBoard(vo);

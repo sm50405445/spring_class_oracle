@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
 
@@ -107,8 +108,10 @@ public class BoardDAO {
 		}
 	}
 	//글 목록조회
-	public void SelectBoard(BoardVO vo) {
+	public ArrayList<BoardVO> SelectBoard(BoardVO vo) {
 		System.out.println("==>JDBC로 SelectBoard() 기능처리");
+		
+		ArrayList<BoardVO> members = new ArrayList<BoardVO>();
 		try {
 			conn = JDBCUtil.getConnection();
 			pstm = conn.prepareStatement(BOARD_LIST);
@@ -121,14 +124,18 @@ public class BoardDAO {
 				vo.setContent(rs.getString("CONTENT"));
 				vo.setDate(rs.getDate("REGDATE"));
 				vo.setCnt(rs.getInt("CNT"));
-				System.out.println(vo.toString());
+				members.add(vo);
 			}
+			
+			
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			JDBCUtil.close(rs, pstm, conn);
 		}
+		
+		return members;
 	}
 	//
 	

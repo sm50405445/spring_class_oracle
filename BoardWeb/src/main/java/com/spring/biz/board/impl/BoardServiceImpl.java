@@ -1,5 +1,7 @@
 package com.spring.biz.board.impl;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,9 +47,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public void SelectBoard(BoardVO vo) {
+	public ArrayList<BoardVO> SelectBoard(BoardVO vo) {
 		//log.printLogging();
-		dao.SelectBoard(vo);
+		return dao.SelectBoard(vo);
 	}
 	
 	
