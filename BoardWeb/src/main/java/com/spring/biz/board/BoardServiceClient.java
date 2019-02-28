@@ -1,12 +1,10 @@
 package com.spring.biz.board;
 
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
-
-import com.spring.biz.board.impl.BoardServiceImpl;
 
 public class BoardServiceClient {
 
@@ -19,16 +17,24 @@ public class BoardServiceClient {
 		BoardService boardService = (BoardService) ctx.getBean("BoardService");
 		
 		//3. 글 등록
+		/*BoardVO vo = new BoardVO();
+		
+		 * vo.setSeq(0); vo.setTitle("1"); vo.setWriter("1"); vo.setContent("1");
+		 * boardService.InsertBoard(vo);
+		 */
 		BoardVO vo = new BoardVO();
-		vo.setSeq(0);
-		vo.setTitle("1");
-		vo.setWriter("1");
-		vo.setContent("1");
+		vo.setTitle("트랜젝션");
+		vo.setWriter("lsm");
+		vo.setContent("안녕하세요");
 		boardService.InsertBoard(vo);
+		List<BoardVO> list = boardService.SelectBoard();
+		for(BoardVO lists : list) {
+			System.out.println(lists.toString());
+		}
 		
 		
-		  ArrayList<BoardVO> members = boardService.SelectBoard(vo); for(int i
-		  =0;i<members.size();i++) { System.out.println(members.get(i)); }
+		 
+		
 		 
 		
 		  

@@ -20,7 +20,7 @@ public class UserDAO {
 	
 	//SQL 명령어
 	private final String USER_INSERT = "insert into Users(id,password,name,role) values(?,?,?,?)";
-	private final String USER_GET = "select * from users where id=? and password=?";
+	private final String USER_GET = "select * from users where id=?";
 	
 	//crud 관련 메서드 선언
 	

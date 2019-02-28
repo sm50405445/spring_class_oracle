@@ -108,14 +108,15 @@ public class BoardDAO {
 		}
 	}
 	//글 목록조회
-	public ArrayList<BoardVO> SelectBoard(BoardVO vo) {
+	public ArrayList<BoardVO> SelectBoard() {
 		System.out.println("==>JDBC로 SelectBoard() 기능처리");
-		
+		BoardVO vo = new BoardVO();
 		ArrayList<BoardVO> members = new ArrayList<BoardVO>();
 		try {
 			conn = JDBCUtil.getConnection();
 			pstm = conn.prepareStatement(BOARD_LIST);
 			rs = pstm.executeQuery();
+			
 			while(rs.next()) {
 				vo.setSeq(rs.getInt("SEQ"));
 				vo.setWriter(rs.getString("WRITER"));

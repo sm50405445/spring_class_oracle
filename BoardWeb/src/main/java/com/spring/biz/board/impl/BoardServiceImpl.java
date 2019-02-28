@@ -1,6 +1,7 @@
 package com.spring.biz.board.impl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ import com.spring.biz.board.BoardVO;
 public class BoardServiceImpl implements BoardService{
 
 	@Autowired
-	private BoardDAO dao;
+	private BoardDAOSpring dao;
 	/* private LogAdvice log; */
 	/* private Log4jAdvice log; */
 	
@@ -25,12 +26,10 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void InsertBoard(BoardVO vo) {
 		/* log.printLogging(); */
-		System.out.println(vo.getSeq());
 		
-		 if((vo.getSeq()==0)) { 
+		 if(vo.getSeq()==0) { 
 			 new IllegalArgumentException("0번글은 등록못합니다"); 
 		 }
-		 System.out.println(vo.getSeq());
 		dao.InsertBoard(vo);
 	}
 
@@ -53,9 +52,10 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public ArrayList<BoardVO> SelectBoard(BoardVO vo) {
+	public List<BoardVO> SelectBoard() {
 		//log.printLogging();
-		return dao.SelectBoard(vo);
+		List<BoardVO> members = dao.SelectBoard();
+		return members;
 	}
 	
 	

@@ -1,6 +1,6 @@
 package com.spring.biz.board;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface BoardService {
 
@@ -8,6 +8,6 @@ public interface BoardService {
 	void UpdateBoard(BoardVO vo);
 	void DeleteBoard(BoardVO vo);
 	void SelectOneBoard(BoardVO vo);
-	public ArrayList<BoardVO> SelectBoard(BoardVO vo);
+	public List<BoardVO> SelectBoard();
 	
 }
